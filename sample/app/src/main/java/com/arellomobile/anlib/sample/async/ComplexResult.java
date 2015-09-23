@@ -1,23 +1,23 @@
-package com.arellomobile.anlib.sample;
+package com.arellomobile.anlib.sample.async;
 
 /**
- * Date: 22.09.2015
- * Time: 17:03
+ * Date: 23.09.2015
+ * Time: 20:03
  *
  * @author Yuri Shmakov
  */
-public class ComplexResult<T>
+public class ComplexResult<D>
 {
-	private T mData;
+	private D mData;
 	private Exception mException;
 
 	public ComplexResult()
 	{
 	}
 
-	public ComplexResult(T result)
+	public ComplexResult(D data)
 	{
-		mData = result;
+		mData = data;
 	}
 
 	public ComplexResult(Exception exception)
@@ -25,12 +25,12 @@ public class ComplexResult<T>
 		mException = exception;
 	}
 
-	public T getData()
+	public D getData()
 	{
 		return mData;
 	}
 
-	public void setData(T data)
+	public void setData(D data)
 	{
 		mData = data;
 	}
