@@ -80,139 +80,144 @@ public class SaveStateInjector extends Injector<InjectSavedStateHolder, SavedSta
 		{
 			Object value = InjectReflects.getField(field, getTarget());
 
+			if (value == null)
+			{
+				return;
+			}
+
 			Bundle bundle = mOutState;
-			boolean success = true;
 			String key = data.key;
 
-			if (value instanceof Boolean)
-			{
-				bundle.putBoolean(key, (Boolean) value);
-				success = true;
-			}
-			else if (value instanceof boolean[])
-			{
-				bundle.putBooleanArray(key, (boolean[]) value);
-				success = true;
-			}
-			else if (value instanceof Byte)
-			{
-				bundle.putByte(key, (Byte) value);
-				success = true;
-			}
-			else if (value instanceof byte[])
-			{
-				bundle.putByteArray(key, (byte[]) value);
-				success = true;
-			}
-			else if (value instanceof Character)
-			{
-				bundle.putChar(key, (Character) value);
-				success = true;
-			}
-			else if (value instanceof char[])
-			{
-				bundle.putCharArray(key, (char[]) value);
-				success = true;
-			}
-			else if (value instanceof Double)
-			{
-				bundle.putDouble(key, (Double) value);
-				success = true;
-			}
-			else if (value instanceof double[])
-			{
-				bundle.putDoubleArray(key, (double[]) value);
-				success = true;
-			}
-			else if (value instanceof Float)
-			{
-				bundle.putFloat(key, (Float) value);
-				success = true;
-			}
-			else if (value instanceof float[])
-			{
-				bundle.putFloatArray(key, (float[]) value);
-				success = true;
-			}
-			else if (value instanceof Integer)
-			{
-				bundle.putInt(key, (Integer) value);
-				success = true;
-			}
-			else if (value instanceof int[])
-			{
-				bundle.putIntArray(key, (int[]) value);
-				success = true;
-			}
-			else if (value instanceof Long)
-			{
-				bundle.putLong(key, (Long) value);
-				success = true;
-			}
-			else if (value instanceof long[])
-			{
-				bundle.putLongArray(key, (long[]) value);
-				success = true;
-			}
-			else if (value instanceof Short)
-			{
-				bundle.putShort(key, (Short) value);
-				success = true;
-			}
-			else if (value instanceof short[])
-			{
-				bundle.putShortArray(key, (short[]) value);
-				success = true;
-			}
-			else if (value instanceof String)
-			{
-				bundle.putString(key, (String) value);
-				success = true;
-			}
-			else if (value instanceof String[])
-			{
-				bundle.putStringArray(key, (String[]) value);
-				success = true;
-			}
-			else if (value instanceof CharSequence)
-			{
-				bundle.putCharSequence(key, (CharSequence) value);
-				success = true;
-			}
-			else if (value instanceof CharSequence[])
-			{
-				bundle.putCharSequenceArray(key, (CharSequence[]) value);
-				success = true;
-			}
-			else if (value instanceof Bundle)
-			{
-				bundle.putBundle(key, (Bundle) value);
-				success = true;
-			}
-			else if (value instanceof Parcelable)
-			{
-				bundle.putParcelable(key, (Parcelable) value);
-				success = true;
-			}
-			else if (value instanceof Parcelable[])
-			{
-				bundle.putParcelableArray(key, (Parcelable[]) value);
-				success = true;
-			}
-			else if (Sdks.GE_LOLLIPOP)
+			if (Sdks.GE_LOLLIPOP)
 			{
 				if (value instanceof Size)
 				{
 					bundle.putSize(key, (Size) value);
-					success = true;
+					return;
 				}
-				else if (value instanceof SizeF)
+				if (value instanceof SizeF)
 				{
 					bundle.putSizeF(key, (SizeF) value);
-					success = true;
+					return;
 				}
 			}
-			else if (value instanceof List)
+
+			if (value instanceof Boolean)
+			{
+				bundle.putBoolean(key, (Boolean) value);
+				return;
+			}
+			if (value instanceof boolean[])
+			{
+				bundle.putBooleanArray(key, (boolean[]) value);
+				return;
+			}
+			if (value instanceof Byte)
+			{
+				bundle.putByte(key, (Byte) value);
+				return;
+			}
+			if (value instanceof byte[])
+			{
+				bundle.putByteArray(key, (byte[]) value);
+				return;
+			}
+			if (value instanceof Character)
+			{
+				bundle.putChar(key, (Character) value);
+				return;
+			}
+			if (value instanceof char[])
+			{
+				bundle.putCharArray(key, (char[]) value);
+				return;
+			}
+			if (value instanceof Double)
+			{
+				bundle.putDouble(key, (Double) value);
+				return;
+			}
+			if (value instanceof double[])
+			{
+				bundle.putDoubleArray(key, (double[]) value);
+				return;
+			}
+			if (value instanceof Float)
+			{
+				bundle.putFloat(key, (Float) value);
+				return;
+			}
+			if (value instanceof float[])
+			{
+				bundle.putFloatArray(key, (float[]) value);
+				return;
+			}
+			if (value instanceof Integer)
+			{
+				bundle.putInt(key, (Integer) value);
+				return;
+			}
+			if (value instanceof int[])
+			{
+				bundle.putIntArray(key, (int[]) value);
+				return;
+			}
+			if (value instanceof Long)
+			{
+				bundle.putLong(key, (Long) value);
+				return;
+			}
+			if (value instanceof long[])
+			{
+				bundle.putLongArray(key, (long[]) value);
+				return;
+			}
+			if (value instanceof Short)
+			{
+				bundle.putShort(key, (Short) value);
+				return;
+			}
+			if (value instanceof short[])
+			{
+				bundle.putShortArray(key, (short[]) value);
+				return;
+			}
+			if (value instanceof String)
+			{
+				bundle.putString(key, (String) value);
+				return;
+			}
+			if (value instanceof String[])
+			{
+				bundle.putStringArray(key, (String[]) value);
+				return;
+			}
+			if (value instanceof CharSequence)
+			{
+				bundle.putCharSequence(key, (CharSequence) value);
+				return;
+			}
+			if (value instanceof CharSequence[])
+			{
+				bundle.putCharSequenceArray(key, (CharSequence[]) value);
+				return;
+			}
+			if (value instanceof Bundle)
+			{
+				bundle.putBundle(key, (Bundle) value);
+				return;
+			}
+			if (value instanceof Parcelable)
+			{
+				bundle.putParcelable(key, (Parcelable) value);
+				return;
+			}
+			if (value instanceof Parcelable[])
+			{
+				bundle.putParcelableArray(key, (Parcelable[]) value);
+				return;
+			}
+			if (value instanceof List)
 			{
 				final Type type = field.getGenericType();
 
@@ -233,13 +238,13 @@ public class SaveStateInjector extends Injector<InjectSavedStateHolder, SavedSta
 							if (Parcelable.class.isAssignableFrom(oneClass))
 							{
 								bundle.putParcelableArrayList(key, (ArrayList<Parcelable>) value);
-								success = true;
+								return;
 							}
 						}
 					}
 				}
 			}
-			else if (value instanceof ArrayList)
+			if (value instanceof ArrayList)
 			{
 				final Type type = field.getGenericType();
 
@@ -260,28 +265,29 @@ public class SaveStateInjector extends Injector<InjectSavedStateHolder, SavedSta
 							if (String.class.isAssignableFrom(oneClass))
 							{
 								bundle.putStringArrayList(key, (ArrayList<String>) value);
-								success = true;
+								return;
 							}
-							else if (CharSequence.class.isAssignableFrom(oneClass))
+							if (CharSequence.class.isAssignableFrom(oneClass))
 							{
 								bundle.putCharSequenceArrayList(key, (ArrayList<CharSequence>) value);
-								success = true;
+								return;
 							}
-							else if (Integer.class.isAssignableFrom(oneClass))
+							if (Integer.class.isAssignableFrom(oneClass))
 							{
 								bundle.putIntegerArrayList(key, (ArrayList<Integer>) value);
-								success = true;
+								return;
 							}
-							else if (Parcelable.class.isAssignableFrom(oneClass))
+							if (Parcelable.class.isAssignableFrom(oneClass))
 							{
 								bundle.putParcelableArrayList(key, (ArrayList<Parcelable>) value);
-								success = true;
+								return;
 							}
 						}
 					}
 				}
 			}
-			else if (value instanceof SparseArray)
+
+			if (value instanceof SparseArray)
 			{
 				final Type type = field.getGenericType();
 
@@ -302,23 +308,20 @@ public class SaveStateInjector extends Injector<InjectSavedStateHolder, SavedSta
 							if (Parcelable.class.isAssignableFrom(oneClass))
 							{
 								bundle.putSparseParcelableArray(key, (SparseArray<? extends Parcelable>) value);
-								success = true;
+								return;
 							}
 						}
 					}
 				}
 			}
 
-			if (!success && value instanceof Serializable)
+			if (value instanceof Serializable)
 			{
 				bundle.putSerializable(key, (Serializable) value);
-				success = true;
+				return;
 			}
 
-			if (!success)
-			{
-				throw new InjectException("Could not save state");
-			}
+			throw new InjectException("Could not save state");
 
 		}
 		else if (isInjecting())

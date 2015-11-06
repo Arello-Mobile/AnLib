@@ -93,7 +93,7 @@ public class Stater<T extends Enum<T>>
 		return new Stater<>(clazz, set);
 	}
 
-	public void actionUncomplete(T actionName)
+	public void uncomplete(T actionName)
 	{
 		if (!mSet.contains(requireNotNull(actionName)) && !mIngoreDuplicates)
 		{
@@ -115,7 +115,7 @@ public class Stater<T extends Enum<T>>
 		}
 	}
 
-	public void actionComplete(T actionName)
+	public void complete(T actionName)
 	{
 		if (mSet.contains(requireNotNull(actionName)) && !mIngoreDuplicates)
 		{

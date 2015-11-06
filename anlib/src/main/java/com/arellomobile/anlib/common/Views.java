@@ -20,6 +20,9 @@ import com.arellomobile.anlib.inject.injectors.ViewInjector;
  */
 public class Views
 {
+
+	public static final int TAG_VIEW_HOLDER = 459083;
+
 	public static View inflate(Activity activity, int layoutResId)
 	{
 		return activity.getLayoutInflater().inflate(layoutResId, null);
@@ -262,12 +265,12 @@ public class Views
 
 	public static Object getHolder(View view)
 	{
-		return view.getTag(R.id.tag_view_holder);
+		return view.getTag(TAG_VIEW_HOLDER);
 	}
 
 	public static void setHolder(View view, Object holder)
 	{
-		view.setTag(R.id.tag_view_holder, holder);
+		view.setTag(TAG_VIEW_HOLDER, holder);
 	}
 
 	private Views()

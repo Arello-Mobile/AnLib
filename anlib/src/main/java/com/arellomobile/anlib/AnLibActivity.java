@@ -2,7 +2,7 @@ package com.arellomobile.anlib;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import com.arellomobile.anlib.inject.ActivityInjectManager;
 import com.arellomobile.anlib.inject.IActivityInjector;
@@ -17,7 +17,7 @@ import com.arellomobile.anlib.inject.injectors.ViewInjector;
  * 
  * @author denis.mirochnik
  */
-public class AnLibActivity extends FragmentActivity implements IFragmentController
+public class AnLibActivity extends AppCompatActivity implements IFragmentController
 {
 	private IFragmentController mFragmentHelper;
 	private IActivityInjector mActivityInjector;
@@ -49,7 +49,6 @@ public class AnLibActivity extends FragmentActivity implements IFragmentControll
 	public void onContentChanged()
 	{
 		super.onContentChanged();
-
 		mActivityInjector.activityContentChanged();
 	}
 

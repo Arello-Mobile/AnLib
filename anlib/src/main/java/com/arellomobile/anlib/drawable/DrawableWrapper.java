@@ -81,6 +81,7 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback
 		return mDelegate.getChangingConfigurations();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void setDither(boolean dither)
 	{

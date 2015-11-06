@@ -12,7 +12,7 @@ public class AsyncResult<V>
 
 	public boolean isSuccess()
 	{
-		return exception != null;
+		return exception == null;
 	}
 
 	public static <V> AsyncResult<V> ofData(V data)

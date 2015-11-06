@@ -3,6 +3,7 @@ package com.arellomobile.anlib;
 import android.app.Application;
 
 import com.arellomobile.anlib.async.Async;
+import com.arellomobile.anlib.async.Execs;
 
 /**
  * Jan 26, 2015
@@ -27,7 +28,6 @@ public abstract class AnLibApplication extends Application
 
 		new Async<Void>()
 		{
-
 			@Override
 			protected Void doWork()
 			{
@@ -35,7 +35,7 @@ public abstract class AnLibApplication extends Application
 
 				return null;
 			}
-		}.doWork();
+		}.execute(Execs.DISK);
 	}
 
 	public abstract void onApplicationCreate();

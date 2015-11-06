@@ -13,14 +13,16 @@ class InjectReflects
 {
 	public static void setField(Field field, Object target, Object value)
 	{
-		if (field.getType().isPrimitive())
-		{
-			return;
-		}
-
 		try
 		{
-			field.set(target, value);
+			if (field.getType().isPrimitive() && value == null)
+			{
+				//TODO set default
+			}
+			else
+			{
+				field.set(target, value);
+			}
 		}
 		catch (IllegalAccessException | IllegalArgumentException e)
 		{

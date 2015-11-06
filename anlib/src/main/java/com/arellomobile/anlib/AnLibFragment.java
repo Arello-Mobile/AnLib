@@ -1,17 +1,14 @@
 package com.arellomobile.anlib;
 
 import static com.arellomobile.anlib.common.Checks.as;
-import static com.arellomobile.anlib.common.Checks.requireApi;
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.os.Build;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.arellomobile.anlib.common.Sdks;
 import com.arellomobile.anlib.event.Event;
 import com.arellomobile.anlib.event.EventAction;
 import com.arellomobile.anlib.event.EventDispatcher;
@@ -38,10 +35,11 @@ public class AnLibFragment extends Fragment implements IEventDispatcher, IFragme
 
 	private FragmentDispatcherController mDispatcherController;
 
+	@SuppressWarnings("deprecation")
 	@Override
-	public void onAttach(Activity activity)
+	public void onAttach(Context context)
 	{
-		super.onAttach(activity);
+		super.onAttach(context);
 
 		getLoaderManager();
 
@@ -72,13 +70,9 @@ public class AnLibFragment extends Fragment implements IEventDispatcher, IFragme
 		mFragmentInjector.fragmentAttach();
 	}
 
-	@SuppressLint("NewApi")
 	private void initFragmentManager()
 	{
-		if (Sdks.GE_SDK_17)
-		{
-			mFragmentHelper = new FragmentController(getChildFragmentManager());
-		}
+		mFragmentHelper = new FragmentController(getChildFragmentManager());
 	}
 
 	@Override
@@ -263,64 +257,48 @@ public class AnLibFragment extends Fragment implements IEventDispatcher, IFragme
 	@Override
 	public Fragment findFragment(String tag)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		return mFragmentHelper.findFragment(tag);
 	}
 
 	@Override
 	public Fragment findFragment(int id)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		return mFragmentHelper.findFragment(id);
 	}
 
 	@Override
 	public boolean hasFragment(String tag)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		return mFragmentHelper.hasFragment(tag);
 	}
 
 	@Override
 	public boolean hasFragment(int id)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		return mFragmentHelper.hasFragment(id);
 	}
 
 	@Override
 	public void addFragment(String tag, Fragment frag)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		mFragmentHelper.addFragment(tag, frag);
 	}
 
 	@Override
 	public void addFragmentLoss(String tag, Fragment frag)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		mFragmentHelper.addFragmentLoss(tag, frag);
 	}
 
 	@Override
 	public void addFragment(String tag, Fragment frag, int contId)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		mFragmentHelper.addFragment(tag, frag, contId);
 	}
 
 	@Override
 	public void addFragmentLoss(String tag, Fragment frag, int contId)
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		mFragmentHelper.addFragmentLoss(tag, frag, contId);
 	}
 
@@ -384,11 +362,8 @@ public class AnLibFragment extends Fragment implements IEventDispatcher, IFragme
 		return mLoaderController.restartLoader(id, loader, callback);
 	}
 */
-	@SuppressLint("NewApi")
 	public AnLibFragment getParentAnLibFragment()
 	{
-		requireApi(Build.VERSION_CODES.JELLY_BEAN_MR1);
-
 		return as(getParentFragment(), AnLibFragment.class);
 	}
 
